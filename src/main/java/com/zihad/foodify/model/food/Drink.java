@@ -5,8 +5,8 @@ import com.zihad.foodify.utils.Category;
 public class Drink extends FoodItem {
     protected String Size;
 
-    public Drink(int id, String name, double price, Category cat, String Size) {
-        super(id, name, price, cat);
+    public Drink(int id, String name, double price, Category cat, String Size, int quantity) {
+        super(id, name, price, cat, quantity);
         this.Size = Size;
     }
 
@@ -38,5 +38,10 @@ public class Drink extends FoodItem {
     @Override
     public String getDetails() {
         return this.name;
+    }
+
+    @Override
+    public int getQuantity() {
+        return this.quantity;
     }
 }

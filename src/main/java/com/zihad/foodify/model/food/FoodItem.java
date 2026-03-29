@@ -7,13 +7,14 @@ public abstract class FoodItem {
     protected String name;
     protected double price;
     protected Category category;
-    protected String size;
+    protected int quantity;
 
-    FoodItem(int id, String name, double price, Category cat) {
+    FoodItem(int id, String name, double price, Category cat, int quantity) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.category = cat;
+        this.quantity = quantity;
     }
 
     public abstract int getId();
@@ -27,4 +28,7 @@ public abstract class FoodItem {
     public abstract String getSize();
 
     public abstract String getDetails();
+
+    public abstract int getQuantity();
+
 }
