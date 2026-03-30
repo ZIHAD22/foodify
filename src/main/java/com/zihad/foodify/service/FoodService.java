@@ -22,6 +22,10 @@ public class FoodService {
         }
     }
 
+    public FoodList getFoodList() {
+        return foodList;
+    }
+
     public void showMenu() {
         System.out.println("------ Menu ------");
 
@@ -32,17 +36,13 @@ public class FoodService {
         }
     }
 
-    public static FoodItem createFoodItem(Scanner sc) {
+    public FoodItem createFoodItem(Scanner sc) {
         System.out.println("Select Food Type:");
         System.out.println("1. Burger");
         System.out.println("2. Pizza");
         System.out.println("3. Drink");
 
         int choice = sc.nextInt();
-        sc.nextLine();
-
-        System.out.print("Enter ID: ");
-        int id = sc.nextInt();
         sc.nextLine();
 
         System.out.print("Enter Name: ");
@@ -60,17 +60,17 @@ public class FoodService {
             case 1:
                 System.out.print("Enter Size: ");
                 String bSize = sc.nextLine();
-                return new Burger(id, name, price, Category.BURGER, bSize, quantity);
+                return new Burger((foodList.getSize() + 1), name, price, Category.BURGER, bSize, quantity);
 
             case 2:
                 System.out.print("Enter Size: ");
                 String pSize = sc.nextLine();
-                return new Pizza(id, name, price, Category.PIZZA, pSize, quantity);
+                return new Pizza((foodList.getSize() + 1), name, price, Category.PIZZA, pSize, quantity);
 
             case 3:
                 System.out.print("Enter Volume (ml): ");
                 String volume = sc.nextLine();
-                return new Drink(id, name, price, Category.DRINK, volume, quantity);
+                return new Drink((foodList.getSize() + 1), name, price, Category.DRINK, volume, quantity);
 
             default:
                 System.out.println("Invalid choice!");

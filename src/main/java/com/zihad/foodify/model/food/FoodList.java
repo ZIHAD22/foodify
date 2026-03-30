@@ -9,7 +9,15 @@ public class FoodList {
         foodList.add(item);
     }
 
+    public int getSize() {
+        return foodList.size();
+    }
+
     public ArrayList<FoodItem> getAll() {
         return foodList;
+    }
+
+    public FoodItem getById(int id) {
+        return foodList.get(id - 1);
     }
 }

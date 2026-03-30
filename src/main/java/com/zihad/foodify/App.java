@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.zihad.foodify.model.Customer;
 import com.zihad.foodify.service.FoodService;
+import com.zihad.foodify.service.OrderService;
 
 public class App {
     public static void main(String[] args) {
@@ -18,15 +19,13 @@ public class App {
         System.out.print("Enter Email: ");
         String email = sc.nextLine();
 
-        System.out.print("Enter Phone: ");
-        String phone = sc.nextLine();
-
-        Customer customer = new Customer(1, name, email, phone);
+        Customer customer = new Customer(1, name, email);
 
         System.out.println("\n Registration Successful!");
         System.out.println("Welcome, " + customer.getName() + "\n");
 
         FoodService foodService = new FoodService();
+        OrderService orderService = new OrderService(foodService.getFoodList());
 
         while (true) {
             System.out.println("\n====== MENU ======");
@@ -49,13 +48,12 @@ public class App {
                     break;
 
                 case 3:
-                    System.out.println("");
+                    orderService.processOrder(sc, customer);
                     break;
 
                 case 4:
-                    System.out.println("");
+                    orderService.showOrderHistory(customer);
                     break;
-
                 case 5:
                     System.out.println("");
                     return;

@@ -1,16 +1,18 @@
 package com.zihad.foodify.model;
 
+import com.zihad.foodify.model.order.OrderList;
+
 public class Customer {
     private int id;
     private String name;
     private String email;
-    private String phone;
 
-    public Customer(int id, String name, String email, String phone) {
+    private OrderList orderList = new OrderList();
+
+    public Customer(int id, String name, String email) {
         this.email = email;
         this.id = id;
         this.name = name;
-        this.phone = phone;
     }
 
     public int getId() {
@@ -21,11 +23,11 @@ public class Customer {
         return this.name;
     }
 
-    public String getPhone() {
-        return this.phone;
-    }
-
     public String getEmail() {
         return this.email;
+    }
+
+    public OrderList getOrderList() {
+        return orderList;
     }
 }
