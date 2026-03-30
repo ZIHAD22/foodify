@@ -31,4 +31,6 @@ public abstract class FoodItem {
 
     public abstract int getQuantity();
 
+    public abstract void updateQuantity(int newQuantity);
+
 }

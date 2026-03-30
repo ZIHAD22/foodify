@@ -44,4 +44,9 @@ public class Pizza extends FoodItem {
     public int getQuantity() {
         return this.quantity;
     }
+
+    @Override
+    public void updateQuantity(int newQuantity) {
+        this.quantity = this.quantity - newQuantity;
+    };
 }

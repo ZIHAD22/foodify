@@ -38,6 +38,7 @@ public class OrderService {
                     System.out.print("Update quantity: ");
                     int quantity = sc.nextInt();
                     order.getItemsById(id).updateQuantity(quantity);
+                    foodList.getById(id).updateQuantity(quantity);
                     System.out.println("Quantity successfully!");
 
                 } else {
@@ -45,8 +46,8 @@ public class OrderService {
                     System.out.print("Enter quantity: ");
                     int quantity = sc.nextInt();
                     order.addItem(id, quantity);
-
-                    System.out.println("Added: " + item.getName());
+                    foodList.getById(id).updateQuantity(quantity);
+                    System.out.println("Add to cart : " + item.getName());
                 }
             } else {
                 System.out.println("Invalid ID");
